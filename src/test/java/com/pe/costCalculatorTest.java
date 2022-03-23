@@ -77,4 +77,49 @@ public class costCalculatorTest {
 
     }
 
+    @Test
+    public void testCartWithPromotion() {
+        Map<Product, Integer> items = new HashMap<>();
+        items.put(new Product("A"), 5);
+        items.put(new Product("B"), 5);
+        items.put(new Product("C"), 1);
+
+        Cart cart =new Cart();
+        PromotionServiceImpl promotionService = new PromotionServiceImpl();
+        List<Promotion> promotions = promotionUtil.addPromotions();
+
+        cart.setItems(items);
+        System.out.println(cart.getItems());
+
+
+
+        int totalPrice = promotionService.getPriceAfterPromotion(cart, promotions);
+        System.out.println(totalPrice);
+        assertThat(totalPrice).isEqualTo(370);
+
+    }
+
+    @Test
+    public void testCartWithGroupPromotion() {
+        Map<Product, Integer> items = new HashMap<>();
+        items.put(new Product("A"), 3);
+        items.put(new Product("B"), 5);
+        items.put(new Product("C"), 1);
+        items.put(new Product("D"), 1);
+
+        Cart cart =new Cart();
+        PromotionServiceImpl promotionService = new PromotionServiceImpl();
+        List<Promotion> promotions = promotionUtil.addPromotions();
+
+        cart.setItems(items);
+        System.out.println(cart.getItems());
+
+
+
+        int totalPrice = promotionService.getPriceAfterPromotion(cart, promotions);
+        System.out.println(totalPrice);
+        assertThat(totalPrice).isEqualTo(280);
+
+    }
+
 }
