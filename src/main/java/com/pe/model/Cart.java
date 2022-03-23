@@ -1,22 +1,23 @@
 package com.pe.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class Cart {
 
     private Map<Product, Integer> items;
 
-    public Cart() {
-    }
 
-    public Map<Product, Integer> getItems() {
-        return items;
-    }
 
-    public void setItems(Map<Product, Integer> items) {
-        this.items = items;
-    }
 
     public Cart(Map<Product, Integer> items) {
         this.items = items;

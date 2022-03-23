@@ -7,9 +7,7 @@ import com.pe.service.PromotionService;
 import com.pe.service.PromotionServiceImpl;
 import com.pe.util.promotionUtil;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
 
-import java.io.SyncFailedException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,35 +23,8 @@ public class costCalculatorTest {
     private static Product productC;
     private static Product productD;
 
-    @BeforeAll
-    public static void setup() {
-        promotionService = new PromotionServiceImpl();
-        promotions = promotionUtil.addPromotions();
-
-    }
 
 
-    costCalculator testCalculator=new costCalculator();
-    @Test
-    public void testCalculation1() {
-        int result = testCalculator.calculateTotalCost(1,1,1,0);
-
-        assertThat(result).isEqualTo(100);
-    }
-
-    @Test
-    public void testCalculation2() {
-        int result = testCalculator.calculateTotalCost(5,5,1,0);
-
-        assertThat(result).isEqualTo(370);
-    }
-
-    @Test
-    public void testCalculation3() {
-        int result = testCalculator.calculateTotalCost(3,5,1,1);
-
-        assertThat(result).isEqualTo(280);
-    }
 
     @Test
     public void testCartWithNoAvailablePromotion() {
