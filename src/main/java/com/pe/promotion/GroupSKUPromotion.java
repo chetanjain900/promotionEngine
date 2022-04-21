@@ -61,7 +61,7 @@ public class GroupSKUPromotion implements Promotion{
                 checkAvailability.put(kv.getKey().getSKU_Name(), true);
             }
         }
-        // todo: make sure all applied items occur in the cart.
+
         return !checkAvailability.containsValue(false);
     }
 }
